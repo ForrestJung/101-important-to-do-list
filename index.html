@@ -20,36 +20,55 @@
       <button onclick="createObjectIn_Cant_ControlList();">Can't Control</button>
     </section>
 
-    <section>
+    <section id="things-i-must-accept">
       <h2>Things I Must Accept</h2>
+      <input value="" onkeyup="setValueOf_Must_Accept(this.value)"/>
+      <button onclick="createObjectIn_Must_AcceptList()">Must Accept</button>
     </section>
 
     <script>
       let thingI_Can_Control;
       let thingI_Cant_Control;
+      let thingI_Must_Accept;
 
       function setValueOf_Can_Control(input) {
         thingI_Can_Control = input
-        console.log({usersInput})
+/*         console.log({userInput}) */
       }
       
-      function setValueOf_Cant_Control() {
+      function setValueOf_Cant_Control(input) {
+        thingI_Cant_Control = input
+/*         console.log({userInput}) */
+      }
+
+      function setValueOf_Must_Accept(input) {
+        thingI_Must_Accept = input
       }
 
       function createObjectIn_Can_ControlList() {
-        let newObject = document.createElement("h3")
+        let nextObject = document.createElement("h3")
         let text = document.createTextNode(thingI_Can_Control)
-        newObject.appendChild(text)
+        nextObject.appendChild(text)
         
         // We want to append the new object in a specific Section object instead of the Body object
         // So we use the Document's method: "getElementById()" to select the section
         // document.body.appendChild(newObject)  
-        document.getElementById("things-i-can-control").appendChild(newObject)
+        document.getElementById("things-i-can-control").appendChild(nextObject)
       }
 
-      function createObjectInCantControlList() {
+      function createObjectIn_Cant_ControlList() {
+        let newObject = document.createElement("h3")
+        let text = document.createTextNode(thingI_Cant_Control)
+        newObject.appendChild(text)
+        document.getElementById("things-i-cant-control").appendChild(newObject)
       }
 
+      function createObjectIn_Must_AcceptList() {
+        let newObject = document.createElement("h3")
+        let text = document.createTextNode(thingI_Must_Accept)
+        newObject.appendChild(text)
+        document.getElementById("things-i-must-accept").appendChild(newObject)
+      }
     </script>
   </body>
 </html>
